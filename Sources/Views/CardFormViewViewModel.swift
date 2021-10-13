@@ -230,9 +230,22 @@ class CardFormViewViewModel: CardFormViewViewModelType {
     }
 
     func update(cardHolder: String?) -> Result<String, FormError> {
-        guard let holderInput = cardHolder, let cardHolder = cardHolder, !cardHolder.isEmpty else {
+        guard var holderInput = cardHolder, let cardHolder = cardHolder, !cardHolder.isEmpty else {
             self.cardHolder = nil
             return .failure(.cardHolderEmptyError(value: nil, isInstant: false))
+        }
+        // アルファベットフリック入力の大文字小文字変換キー(a/A)タップ時の文字が↨として扱われるため、そのままテキストとして扱わず、大文字小文字変換として扱う
+        if holderInput.last == "↨" {
+            holderInput.removeLast()
+            if let last = holderInput.last {
+                let converted: String
+                if holderInput.last?.isLowercase == true {
+                    converted = last.uppercased()
+                } else {
+                    converted = last.lowercased()
+                }
+                holderInput.replaceSubrange(holderInput.index(before: holderInput.endIndex)..<holderInput.endIndex, with: converted)
+            }
         }
         self.cardHolder = holderInput
 
