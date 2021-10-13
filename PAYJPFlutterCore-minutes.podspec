@@ -7,10 +7,10 @@
 #
 module PAYJPSDK
   VERSION = '1.6.1'
-  HOMEPAGE_URL = 'https://github.com/payjp/payjp-ios'
+  HOMEPAGE_URL = 'https://github.com/minutes-team/payjp-ios'
   LICENSE = { :type => 'MIT' }
   AUTHOR = { 'PAY.JP (https://pay.jp)' => 'support@pay.jp' }
-  SOURCE = { :git => 'https://github.com/payjp/payjp-ios.git', :tag => VERSION }
+  SOURCE = { :git => 'https://github.com/minutes-team/payjp-ios', :branch => 'fix_flick_keyboard_input_handling' }
   MODULE_NAME = 'PAYJP'
   SWIFT_VERSIONS = ['5.0', '5.1', '5.2']
   IOS_DEPLOYMENT_TARGET = '10.0'
