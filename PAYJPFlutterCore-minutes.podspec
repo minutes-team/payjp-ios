@@ -8,7 +8,7 @@
 require './podspec'
 
 Pod::Spec.new do |s|
-  s.name             = 'PAYJPFlutterCore'
+  s.name             = 'PAYJPFlutterCore-minutes'
   s.version          = PAYJPSDK::VERSION
   s.summary          = 'PAY.JP iOS SDK for Flutter distribution'
   s.description      = 'PAY.JP iOS SDK https://pay.jp/docs/started'
